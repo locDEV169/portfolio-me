@@ -19,105 +19,86 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "night-crossing",
-    title: "Night Crossing",
+    slug: "girl-night-out",
+    title: "Girl Night Out",
     type: "photo",
-    category: "Street Night",
-    location: "Ho Chi Minh City",
+    category: "Night Out",
+    location: "Da Nang, Viet Nam",
     year: "2025",
     summary:
-      "Pedestrians cut through rain and neon after midnight — short distances that feel longer in the wet.",
+      "Warm rooms, quick turns, and night energy — a fashion-forward night-out set shot on the move.",
     cover: {
-      src: "https://images.unsplash.com/photo-1519502330808-a3dab5ce9ad9?auto=format&fit=crop&w=1600&q=80",
-      alt: "City street at night with neon reflections",
+      src: "/images/projects/girl-night-out/cover.jpg",
+      alt: "Night-out portrait in an orange top and black skirt",
     },
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1519502330808-a3dab5ce9ad9?auto=format&fit=crop&w=1600&q=80",
-        alt: "Neon street reflections on wet asphalt",
+        src: "/images/projects/girl-night-out/01.jpg",
+        alt: "Smiling over-the-shoulder portrait with yellow bag",
       },
       {
-        src: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
-        alt: "City skyline at dusk",
+        src: "/images/projects/girl-night-out/02.jpg",
+        alt: "Night-out frame from the girl night out set",
       },
       {
-        src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1600&q=80",
-        alt: "Busy urban intersection",
+        src: "/images/projects/girl-night-out/03.jpg",
+        alt: "Lifestyle portrait in warm indoor light",
+      },
+      {
+        src: "/images/projects/girl-night-out/04.jpg",
+        alt: "Dynamic hair-in-motion portrait by a floor fan",
+      },
+      {
+        src: "/images/projects/girl-night-out/05.jpg",
+        alt: "Night-out fashion frame",
+      },
+      {
+        src: "/images/projects/girl-night-out/06.jpg",
+        alt: "Evening portrait with shallow depth of field",
+      },
+      {
+        src: "/images/projects/girl-night-out/07.jpg",
+        alt: "Candid night-out moment",
+      },
+      {
+        src: "/images/projects/girl-night-out/08.jpg",
+        alt: "Portrait detail from the night-out series",
+      },
+      {
+        src: "/images/projects/girl-night-out/09.jpg",
+        alt: "Profile portrait in white off-shoulder top",
+      },
+      {
+        src: "/images/projects/girl-night-out/10.jpg",
+        alt: "Closing frame from girl night out",
       },
     ],
-    tags: ["night", "street", "rain"],
+    tags: ["night-out", "portrait", "fashion"],
   },
   {
-    slug: "market-pulse",
-    title: "Market Pulse",
+    slug: "fumirai-anniversary",
+    title: "Fumirai Anniversary",
     type: "photo",
-    category: "Market",
-    location: "District 1",
+    category: "Event",
+    location: "Da Nang, Viet Nam",
     year: "2025",
     summary:
-      "Hands, crates, steam, and quick glances — a morning market as choreography.",
+      "Camera coverage for Fumirai’s first anniversary — team energy, warm rooms, and one shared frame.",
     cover: {
-      src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80",
-      alt: "Busy street market scene",
+      src: "/images/projects/fumirai-anniversary/cover.jpg",
+      alt: "Team group photo at Fumirai first anniversary celebration",
     },
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80",
-        alt: "Street food market stalls",
+        src: "/images/projects/fumirai-anniversary/cover.jpg",
+        alt: "Team group photo at Fumirai first anniversary celebration",
       },
       {
-        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
-        alt: "Prepared dishes on a market counter",
+        src: "/images/projects/fumirai-anniversary/01.jpg",
+        alt: "Fumirai anniversary event frame",
       },
     ],
-    tags: ["market", "daylight", "people"],
-  },
-  {
-    slug: "alley-rehearsal",
-    title: "Alley Rehearsal",
-    type: "video",
-    category: "Video Essay",
-    location: "Old Quarter",
-    year: "2024",
-    summary:
-      "A short observational piece following scooter traffic compressing into a narrow alley.",
-    cover: {
-      src: "https://images.unsplash.com/photo-1526481280695-3c469481bd3f?auto=format&fit=crop&w=1600&q=80",
-      alt: "Narrow alley with scooters and wires",
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1526481280695-3c469481bd3f?auto=format&fit=crop&w=1600&q=80",
-        alt: "Alley with hanging wires",
-      },
-    ],
-    videoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
-    tags: ["video", "alley", "motion"],
-  },
-  {
-    slug: "concrete-pause",
-    title: "Concrete Pause",
-    type: "photo",
-    category: "Quiet City",
-    location: "Saigon River",
-    year: "2024",
-    summary:
-      "Quiet frames between rush hours — concrete, water, and people waiting for nothing in particular.",
-    cover: {
-      src: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=80",
-      alt: "Urban waterfront architecture",
-    },
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=80",
-        alt: "City buildings along the water",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80",
-        alt: "Quiet street with soft daylight",
-      },
-    ],
-    tags: ["quiet", "architecture", "river"],
+    tags: ["event", "corporate", "group"],
   },
 ];
 

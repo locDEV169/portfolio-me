@@ -1,0 +1,5 @@
+Drop Instagram photo exports in this folder (JPG/PNG/WebP).
+
+Then tell the agent: "ảnh đã drop, map project giúp mình"
+
+Do not put screenshots of the Instagram app UI if you can save the original photo instead.

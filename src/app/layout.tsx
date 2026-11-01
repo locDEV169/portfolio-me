@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Syne } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { site } from "@/data/site";
 import "./globals.css";
 
 const display = Syne({
@@ -18,11 +19,10 @@ const body = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Street. — Photography & Videography",
-    template: "%s · Street.",
+    default: `${site.name} — Photography & Videography`,
+    template: `%s · ${site.name}`,
   },
-  description:
-    "Personal portfolio of street photography and videography — everyday city life, framed.",
+  description: site.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

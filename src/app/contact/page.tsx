@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,13 +17,16 @@ export default function ContactPage() {
       </p>
       <ContactForm />
       <p className="mt-10 text-sm text-muted">
-        Or email{" "}
+        Prefer DM? Reach {site.name} on{" "}
         <a
-          href="mailto:hello@street.example"
+          href={site.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="border-b border-border pb-0.5 transition-colors hover:border-foreground hover:text-foreground"
         >
-          hello@street.example
+          Instagram {site.handle}
         </a>
+        .
       </p>
     </section>
   );
