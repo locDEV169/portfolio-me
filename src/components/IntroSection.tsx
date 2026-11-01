@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 
 export function IntroSection() {
@@ -10,7 +11,7 @@ export function IntroSection() {
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.9fr_1fr] lg:gap-10 xl:gap-14">
         {/* Left: copy */}
-        <div className="fade-up order-1">
+        <Reveal className="order-1">
           <p className="text-sm text-muted">{site.name}</p>
           <h2 className="mt-3 max-w-md font-display text-4xl tracking-tight sm:text-5xl">
             {site.headline}
@@ -18,7 +19,7 @@ export function IntroSection() {
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
             {site.bio}
           </p>
-          <p className="fade-up text-sm tracking-[0.22em] text-accent uppercase">
+          <p className="mt-4 text-sm tracking-[0.22em] text-accent uppercase">
             {site.tagline}
           </p>
           <Link
@@ -28,10 +29,13 @@ export function IntroSection() {
             Get in touch
             <span aria-hidden>→</span>
           </Link>
-        </div>
+        </Reveal>
 
         {/* Center: oval portrait + badges */}
-        <div className="fade-up fade-up-delay-1 order-2 mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none">
+        <Reveal
+          delay={1}
+          className="order-2 mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none"
+        >
           <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px]">
             <div className="absolute inset-0 overflow-hidden rounded-[999px] bg-surface shadow-sm">
               <Image
@@ -69,10 +73,10 @@ export function IntroSection() {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Right: stats cards + skills */}
-        <div className="fade-up fade-up-delay-2 order-3 flex flex-col gap-4">
+        <Reveal delay={2} className="order-3 flex flex-col gap-4">
           {site.stats.map((stat) => (
             <div
               key={stat.label}
@@ -102,7 +106,7 @@ export function IntroSection() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

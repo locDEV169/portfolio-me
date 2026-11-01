@@ -1,0 +1,61 @@
+import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
+import { services } from "@/data/services";
+
+export function ServicesSection() {
+  return (
+    <section
+      id="services"
+      className="border-t border-border bg-surface px-5 py-20 sm:px-8 sm:py-24"
+    >
+      <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-3xl tracking-tight sm:text-5xl">
+            Inspired by people &amp; city moments
+          </h2>
+          <p className="mt-3 text-muted sm:text-lg">
+            Photography and videography services shaped around street life,
+            events, and quick cinematic takes.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {services.map((service, index) => (
+            <Reveal
+              key={service.id}
+              delay={(Math.min(index, 3) as 0 | 1 | 2 | 3)}
+            >
+              <article className="rounded-3xl bg-background px-6 py-8 ring-1 ring-border/70">
+                <h3 className="font-display text-2xl tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {service.description}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={1} className="mt-12">
+          <div className="flex flex-col items-center justify-between gap-4 rounded-3xl bg-inverse px-6 py-8 text-inverse-fg sm:flex-row sm:px-8">
+            <div>
+              <p className="font-display text-2xl tracking-tight sm:text-3xl">
+                Can&apos;t find what you need?
+              </p>
+              <p className="mt-2 text-sm text-inverse-fg/70">
+                Drop a message — we can shape a custom brief together.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-medium text-inverse transition-opacity hover:opacity-90"
+            >
+              Contact me
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

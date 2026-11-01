@@ -49,7 +49,18 @@ body {
   }
 }
 
+/* Load-time fade (Hero etc.) */
 .fade-up {
+  animation: fade-up 0.85s ease-out both;
+}
+
+/* Scroll enter-view — Reveal toggles .is-visible once */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal.is-visible {
   animation: fade-up 0.85s ease-out both;
 }
 
@@ -66,7 +77,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-up {
+  .fade-up,
+  .reveal.is-visible {
     animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
