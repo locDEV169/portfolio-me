@@ -134,7 +134,7 @@ export const projects: Project[] = [
     type: "photo",
     category: "Traditional",
     location: "Da Nang, Viet Nam",
-    year: "2016",
+    year: "2024",
     summary:
       'The "áo dài" is the traditional dress of Vietnamese women',
     cover: {
