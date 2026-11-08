@@ -22,6 +22,7 @@ public/images/projects/<slug>/
 
 - `girl-night-out/` — from `_inbox/girl_night_out` (10 frames)
 - `cosplay-day/` — from `render_mia_happy_potter` (cover LOC02893 + 9 frames)
+- `ao-dai/` — from `raw_ao_dai_Ha/render` (cover LOC07860 / 17.jpg + 17 frames)
 - `fumirai-anniversary/` — from camera JPG
 
 Drop new sets into `_inbox/<set-name>/`, then ask to map them.
