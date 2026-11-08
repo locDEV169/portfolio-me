@@ -18,7 +18,7 @@ export function SelectedWorksSection() {
               Portfolio
             </p>
             <h2 className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-5xl">
-              Selected Works
+              Photography Works
             </h2>
             <p className="mt-3 text-sm text-muted sm:text-base">
               Street frames and short films picked from recent shoots.
@@ -37,7 +37,7 @@ export function SelectedWorksSection() {
           {featured.map((project, index) => (
             <Reveal
               key={project.slug}
-              delay={(Math.min(index % 2, 3) as 0 | 1 | 2 | 3)}
+              delay={Math.min(index % 2, 3) as 0 | 1 | 2 | 3}
             >
               <ProjectCard
                 project={project}

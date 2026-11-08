@@ -163,6 +163,55 @@ export const projects: Project[] = [
     tags: ["ao-dai", "portrait", "traditional"],
   },
   {
+    slug: "summer-vibes-sea",
+    title: "Summer Vibes by the Sea",
+    type: "photo",
+    category: "Summer",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "A sunlit summer portrait session by the sea, framed by tropical palms and soft shoreline light.",
+    cover: {
+      src: "/images/projects/summer-vibes-sea/01.jpg",
+      alt: "Summer portrait in a white dress beneath tropical palm trees",
+    },
+    gallery: [
+      {
+        src: "/images/projects/summer-vibes-sea/01.jpg",
+        alt: "Smiling portrait by the sea in a white summer dress",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/02.jpg",
+        alt: "Beachside profile portrait with a flower in her hair",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/03.jpg",
+        alt: "Relaxed portrait on the beach with the sea behind",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/04.jpg",
+        alt: "Sunlit beach portrait in a white summer dress",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/05.jpg",
+        alt: "Close beach portrait with a flower in her hair",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/06.jpg",
+        alt: "Playful seaside portrait in warm afternoon light",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/07.jpg",
+        alt: "Wide summer portrait with the shoreline in the background",
+      },
+      {
+        src: "/images/projects/summer-vibes-sea/08.jpg",
+        alt: "Wide summer portrait with the shoreline in the background",
+      },
+    ],
+    tags: ["summer", "beach", "portrait"],
+  },
+  {
     slug: "fumirai-anniversary",
     title: "Fumirai Anniversary",
     type: "photo",
@@ -187,6 +236,7 @@ export const projects: Project[] = [
     ],
     tags: ["event", "corporate", "group"],
   },
+
 ];
 
 export function getProject(slug: string): Project | undefined {
