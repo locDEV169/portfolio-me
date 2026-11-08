@@ -41,7 +41,7 @@ export function CaptureMomentsSection() {
   return (
     <section
       id="capture"
-      className="relative overflow-hidden bg-inverse px-5 py-20 text-inverse-fg sm:px-8 sm:py-28"
+      className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 sm:py-28"
     >
       {/* Collage layer */}
       <div
@@ -51,7 +51,7 @@ export function CaptureMomentsSection() {
         {collage.map((item) => (
           <div
             key={item.src}
-            className={`relative overflow-hidden rounded-3xl ${item.className}`}
+            className={`relative overflow-hidden rounded-2xl ${item.className}`}
           >
             <Image
               src={item.src}
@@ -64,21 +64,24 @@ export function CaptureMomentsSection() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-inverse/70 via-inverse/55 to-inverse/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/85" />
 
       <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-        <h2 className="font-display text-4xl tracking-tight sm:text-5xl md:text-6xl">
+        <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+          Book a shoot
+        </p>
+        <h2 className="mt-3 font-display text-4xl tracking-tight uppercase sm:text-5xl md:text-6xl">
           Let&apos;s capture beautiful moments together
         </h2>
-        <p className="mt-5 max-w-xl text-base text-inverse-fg/75 sm:text-lg">
+        <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
           {site.name} — {site.tagline}. Street frames, events, and quick
           cinematic takes from {site.location}.
         </p>
         <Link
           href="/contact"
-          className="mt-8 inline-flex rounded-full bg-background px-7 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
+          className="mt-8 inline-flex rounded-lg bg-accent px-7 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
         >
-          Get Started
+          Let&apos;s Talk
         </Link>
       </Reveal>
     </section>

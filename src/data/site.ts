@@ -3,7 +3,43 @@ export const site = {
   handle: "@_w.nn_",
   instagramUrl: "https://www.instagram.com/_w.nn_/",
   location: "Da Nang, Viet Nam",
-  tagline: "CameraMan · Camera Operator · Developer",
+  footerNote: "Crafted with street passion",
+  tagline: "Street Lens & Motion",
+  socialsEyebrow: "Connect on Social",
+  // ponytail: href optional — tags without href render as non-links until URL is ready.
+  socials: [
+    {
+      id: "instagram",
+      label: "Instagram",
+      handle: "@_w.nn_",
+      href: "https://www.instagram.com/_w.nn_/",
+    },
+    {
+      id: "youtube",
+      label: "YouTube",
+      handle: "Lockiee Motion",
+    },
+    {
+      id: "behance",
+      label: "Behance",
+      handle: "Lockiee visual",
+    },
+    {
+      id: "tiktok",
+      label: "TikTok",
+      handle: "@lockiee_vlog",
+    },
+  ],
+
+
+  heroEyebrow: "Chụp dạo & quay vội",
+  heroTitle: ["Capturing raw", "moments"] as const,
+  heroAccent: "& street beats",
+  availableForHire: true,
+  heroImage: {
+    src: "/images/projects/girl-night-out/cover.jpg",
+    alt: "Night street portrait from Lockiee recent work",
+  },
   bioShort: "Capturing moments on the go — street frames from Da Nang.",
   bioShort2: "Roaming snaps & casual reels",
   bioShort3: "Street snaps & quick takes",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/data/site";
@@ -17,6 +17,12 @@ const body = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${site.name} — Photography & Videography`,
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <SiteHeader />

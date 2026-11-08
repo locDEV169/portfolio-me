@@ -26,7 +26,7 @@ export default async function ProjectPage({
 
   return (
     <article>
-      <div className="relative min-h-[60vh] bg-inverse">
+      <div className="relative min-h-[60vh] bg-background">
         <Image
           src={project.cover.src}
           alt={project.cover.alt}
@@ -35,18 +35,18 @@ export default async function ProjectPage({
           sizes="100vw"
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-inverse via-inverse/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[60vh] max-w-6xl flex-col justify-end px-5 pb-12 sm:px-8">
           <Link
             href="/work"
-            className="mb-8 w-fit text-sm text-inverse-fg/70 transition-colors hover:text-inverse-fg"
+            className="mb-8 w-fit text-sm text-muted transition-colors hover:text-foreground"
           >
             ← Work
           </Link>
           <p className="text-sm tracking-[0.18em] text-accent uppercase">
             {project.category} · {project.location} · {project.year}
           </p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight text-inverse-fg sm:text-6xl">
+          <h1 className="mt-3 font-display text-4xl tracking-tight text-foreground sm:text-6xl">
             {project.title}
           </h1>
         </div>
@@ -68,7 +68,7 @@ export default async function ProjectPage({
 
       {project.videoUrl ? (
         <div className="mx-auto max-w-5xl px-5 pb-12 sm:px-8">
-          <div className="aspect-video overflow-hidden bg-inverse">
+          <div className="aspect-video overflow-hidden bg-surface">
             <iframe
               src={project.videoUrl}
               title={`${project.title} video`}

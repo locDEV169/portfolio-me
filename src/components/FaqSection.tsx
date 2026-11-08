@@ -14,7 +14,10 @@ export function FaqSection() {
     >
       <div className="mx-auto max-w-3xl">
         <Reveal className="text-center">
-          <h2 className="font-display text-3xl tracking-tight sm:text-5xl">
+          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+            FAQ
+          </p>
+          <h2 className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-5xl">
             Frequently asked questions
           </h2>
           <p className="mt-3 text-muted">
@@ -23,11 +26,11 @@ export function FaqSection() {
         </Reveal>
 
         <Reveal delay={1}>
-          <ul className="mt-12 divide-y divide-border border-y border-border">
+          <ul className="mt-12 divide-y divide-border overflow-hidden rounded-2xl bg-surface ring-1 ring-border">
             {faqs.map((faq) => {
               const open = openId === faq.id;
               return (
-                <li key={faq.id}>
+                <li key={faq.id} className="px-5 sm:px-6">
                   <button
                     type="button"
                     className="flex w-full items-start justify-between gap-4 py-5 text-left"
@@ -39,7 +42,7 @@ export function FaqSection() {
                     </span>
                     <span
                       aria-hidden
-                      className="mt-1 text-muted transition-transform"
+                      className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-background font-mono text-sm text-accent ring-1 ring-border"
                     >
                       {open ? "−" : "+"}
                     </span>

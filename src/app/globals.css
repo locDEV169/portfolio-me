@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  /* street: cool concrete + ink + lamp amber */
-  --background: #eceeef;
-  --foreground: #121314;
-  --muted: #5c6166;
-  --surface: #e2e5e7;
-  --accent: #e5a000;
-  --accent-soft: #f0e2b8;
-  --border: #cfd3d6;
-  --inverse: #121314;
-  --inverse-fg: #eceeef;
+  /* street dark: ink frame + signal orange + hire green */
+  --background: #0c0c0d;
+  --foreground: #f4f4f5;
+  --muted: #9a9ea3;
+  --surface: #161719;
+  --accent: #ff5a1f;
+  --accent-soft: #3a1f14;
+  --hire: #3dd68c;
+  --hire-soft: #143528;
+  --border: #2a2c2f;
+  --inverse: #f4f4f5;
+  --inverse-fg: #0c0c0d;
 }
 
 @theme inline {
@@ -20,11 +22,14 @@
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-hire: var(--hire);
+  --color-hire-soft: var(--hire-soft);
   --color-border: var(--border);
   --color-inverse: var(--inverse);
   --color-inverse-fg: var(--inverse-fg);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 body {
@@ -35,7 +40,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--inverse);
+  color: var(--inverse-fg);
 }
 
 @keyframes fade-up {
