@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { getProject, projects } from "@/data/projects";
 
 export async function generateStaticParams() {
@@ -17,9 +18,9 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">) {
   };
 }
 
-export default async function ProjectPage({
-  params,
-}: PageProps<"/work/[slug]">) {
+type Params = PageProps<"/work/[slug]">["params"];
+
+async function ProjectContent({ params }: { params: Params }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
@@ -94,5 +95,13 @@ export default async function ProjectPage({
         ))}
       </div>
     </article>
+  );
+}
+
+export default function ProjectPage({ params }: PageProps<"/work/[slug]">) {
+  return (
+    <Suspense fallback={null}>
+      <ProjectContent params={params} />
+    </Suspense>
   );
 }

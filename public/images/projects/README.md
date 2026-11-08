@@ -21,6 +21,7 @@ public/images/projects/<slug>/
 ## Current local sets
 
 - `girl-night-out/` — from `_inbox/girl_night_out` (10 frames)
+- `cosplay-day/` — from `render_mia_happy_potter` (cover LOC02893 + 9 frames)
 - `fumirai-anniversary/` — from camera JPG
 
 Drop new sets into `_inbox/<set-name>/`, then ask to map them.

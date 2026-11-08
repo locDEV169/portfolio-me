@@ -76,6 +76,59 @@ export const projects: Project[] = [
     tags: ["night-out", "portrait", "fashion"],
   },
   {
+    slug: "cosplay-day",
+    title: "Cosplay Party",
+    type: "photo",
+    category: "Cosplay",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "Harry Potter–inspired cosplay frames — cloak, wand energy, and soft portrait light from a themed day set.",
+    cover: {
+      src: "/images/projects/cosplay-day/cover.jpg",
+      alt: "Cosplay Day cover portrait in Harry Potter–inspired look",
+    },
+    gallery: [
+      {
+        src: "/images/projects/cosplay-day/01.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/02.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/03.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/04.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/05.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/06.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/07.jpg",
+        alt: "Cosplay Day portrait frame",
+      },
+      {
+        src: "/images/projects/cosplay-day/08.jpg",
+        alt: "Cosplay Day cover frame in gallery",
+      },
+      {
+        src: "/images/projects/cosplay-day/09.jpg",
+        alt: "Cosplay Day closing portrait frame",
+      },
+    ],
+    tags: ["cosplay", "portrait", "harry-potter"],
+  },
+  {
     slug: "fumirai-anniversary",
     title: "Fumirai Anniversary",
     type: "photo",
