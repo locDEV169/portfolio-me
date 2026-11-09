@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Project, ProjectType } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
+import { VideoEmbed } from "@/components/VideoEmbed";
 
 const filters = ["all", "photo", "video"] as const;
 type Filter = (typeof filters)[number];
@@ -57,7 +58,11 @@ export function WorkFilter({ projects }: WorkFilterProps) {
         ))}
       </div>
       {visible.length === 0 ? (
-        <p className="mt-10 text-muted">No projects in this filter yet.</p>
+        filter === "video" ? (
+          <VideoEmbed />
+        ) : (
+          <p className="mt-10 text-muted">No projects in this filter yet.</p>
+        )
       ) : null}
     </div>
   );
