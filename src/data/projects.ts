@@ -212,6 +212,191 @@ export const projects: Project[] = [
     tags: ["summer", "beach", "portrait"],
   },
   {
+    slug: "high-light-dj",
+    title: "Highlight DJ",
+    type: "photo",
+    category: "Nightlife",
+    location: "Da Nang, Viet Nam",
+    year: "2025",
+    summary:
+      "DJ booth highlights — stage light, crowd energy, and tight performance frames across Amor, Cece, Cine, and more.",
+    cover: {
+      src: "/images/projects/high-light-dj/cover.jpg",
+      alt: "DJ booth highlight cover frame",
+    },
+    gallery: [
+      {
+        src: "/images/projects/high-light-dj/dj-amor/DSC09736.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/DSC09737.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/DSC09738.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05097.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05100.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05295.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05301.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05303.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05305.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05306.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05323.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC05330.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC09425.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-amor/LOC09440.jpg",
+        alt: "DJ Amor highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/DSC02948.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/DSC02949.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/DSC02954.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/DSC02982.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/LOC00600.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/LOC00601.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/LOC00609.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/LOC00615.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cece/LOC00671.jpg",
+        alt: "DJ Cece highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cine/DSC09865.jpg",
+        alt: "DJ Cine highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cine/DSC09903.jpg",
+        alt: "DJ Cine highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-cine/LOC04993.jpg",
+        alt: "DJ Cine highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-dark/LOC04415.jpg",
+        alt: "DJ Dark highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-dark/LOC04425.jpg",
+        alt: "DJ Dark highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-kazho/LOC00109.jpg",
+        alt: "DJ Kazho highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-kazho/LOC00111.jpg",
+        alt: "DJ Kazho highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC00460.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC05055.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC07668.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC07671.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC07727.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-mia/LOC07740.jpg",
+        alt: "DJ Mia highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC00720.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC01370.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC01379.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC01386.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC01389.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+      {
+        src: "/images/projects/high-light-dj/dj-rhyn/LOC01400.jpg",
+        alt: "DJ Rhyn highlight frame",
+      },
+    ],
+    tags: ["dj", "nightlife", "event"],
+  },
+  {
     slug: "fumirai-anniversary",
     title: "Fumirai Anniversary",
     type: "photo",

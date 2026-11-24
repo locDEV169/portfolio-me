@@ -74,10 +74,8 @@ export function ProjectCard({
             alt={project.cover.alt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
+            // ponytail: priority alone sets eager/high; duplicating loading/fetchPriority mismatches SSR vs client.
             priority={priority}
-            {...(priority
-              ? { loading: "eager" as const, fetchPriority: "high" as const }
-              : {})}
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
@@ -123,9 +121,6 @@ export function ProjectCard({
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             priority={priority}
-            {...(priority
-              ? { loading: "eager" as const, fetchPriority: "high" as const }
-              : {})}
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
           {number ? (

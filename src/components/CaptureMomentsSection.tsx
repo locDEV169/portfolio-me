@@ -63,9 +63,7 @@ export function CaptureMomentsSection() {
               fill
               sizes="(max-width: 768px) 33vw, 20vw"
               className="object-cover"
-              {...("priority" in item && item.priority
-                ? { priority: true, loading: "eager" as const }
-                : {})}
+              priority={"priority" in item ? item.priority : false}
             />
           </div>
         ))}

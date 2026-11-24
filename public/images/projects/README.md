@@ -24,6 +24,7 @@ public/images/projects/<slug>/
 - `cosplay-day/` — from `render_mia_happy_potter` (cover LOC02893 + 9 frames)
 - `ao-dai/` — from `raw_ao_dai_Ha/render` (cover LOC07860 / 17.jpg + 17 frames)
 - `fumirai-anniversary/` — from camera JPG
+- `high-light-dj/` — DJ highlight set by booth (`dj-amor`, `dj-cece`, `dj-cine`, `dj-dark`, `dj-kazho`, `dj-mia`, `dj-rhyn`; cover from `dj-amor/LOC05303.jpg`)
 - `visual-side-effect/` — cover from `side_effec_visual_di_amor.mp4` (full `/videos/visual-side-effect.mp4`, intro `/videos/visual-side-effect-intro.mp4`)
 - `recap-hlw-2/` — cover from `Recap_HLW_2.mp4` (full `/videos/recap-hlw-2.mp4`, intro `/videos/recap-hlw-2-intro.mp4`)
 - `cau-long-fien/` — cover from `Cầu lông Fien.mp4` (full `/videos/cau-long-fien.mp4`, intro `/videos/cau-long-fien-intro.mp4`)
