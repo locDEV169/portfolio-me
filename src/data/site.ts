@@ -47,6 +47,15 @@ export const site = {
     "Lockiee — CameraMan, camera operator, and developer. Street photography and quick videography from Da Nang, Viet Nam.",
   headline: "A freelancer based in Da Nang",
   bio: "Hi, I'm Lockiee — CameraMan, camera operator, and developer. I shoot and film the unscripted city: chụp dạo, quay vội, and frames that feel alive.",
+  // Belinda-lite manifesto — stacked display lines under the hero.
+  manifesto: [
+    "I SHOOT",
+    "PEOPLE, STREETS",
+    "AND THE BEAT BEFORE",
+    "ANYTHING SETTLES.",
+  ] as const,
+  manifestoBody:
+    "Portraits, nightlife, F&B stills and quick motion cuts for people who care how a frame feels — not just how it looks. Street when the city moves; intentional when it pauses.",
   // ponytail: placeholder stats until Lockiee confirms real numbers.
   stats: [
     {
@@ -58,6 +67,11 @@ export const site = {
       value: "100",
       suffix: "+",
       label: "Shoots & sets captured",
+    },
+    {
+      value: "2",
+      suffix: "",
+      label: "Jobs — photo & video",
     },
   ],
   skills: [
