@@ -41,7 +41,8 @@ function TickerColumn({
   const loop = [...images, ...images];
 
   return (
-    <div className="relative min-h-0 flex-1 overflow-hidden rounded-xl">
+    // ponytail: h-full so grid cells (not flex) get a definite height; intrinsic Image avoids fill+height-0 warnings.
+    <div className="relative h-full min-h-0 overflow-hidden rounded-xl">
       <div
         className={`flex flex-col gap-4 ${
           reverse ? "ticker-track-reverse" : "ticker-track"
@@ -50,14 +51,15 @@ function TickerColumn({
         {loop.map((src, index) => (
           <div
             key={`${src}-${index}`}
-            className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-xl bg-surface"
+            className="aspect-[3/4] w-full shrink-0 overflow-hidden rounded-xl bg-surface"
           >
             <Image
               src={src}
               alt=""
-              fill
+              width={480}
+              height={640}
               sizes="(max-width: 768px) 45vw, 22vw"
-              className="object-cover"
+              className="size-full object-cover"
             />
           </div>
         ))}

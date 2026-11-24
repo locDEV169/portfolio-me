@@ -10,23 +10,54 @@ const featuredPhotos = projects
   .filter((project) => project.type === "photo")
   .slice(0, 6);
 
+function heroFrame(index: number) {
+  const project = featuredPhotos[index];
+  if (project) {
+    return { src: project.cover.src, alt: project.cover.alt };
+  }
+  return { src: site.heroImage.src, alt: site.heroImage.alt };
+}
+
 export function HomeHero() {
   const [active, setActive] = useState(0);
-  const activeProject = featuredPhotos[active] ?? null;
-  const heroSrc = activeProject?.cover.src ?? site.heroImage.src;
-  const heroAlt = activeProject?.cover.alt ?? site.heroImage.alt;
+  // ponytail: null until first thumb click so SSR/client first paint stay a single Image (avoids HMR dual-layer mismatch).
+  const [previous, setPrevious] = useState<number | null>(null);
+  const [fadeKey, setFadeKey] = useState(0);
+
+  const current = heroFrame(active);
+
+  function select(index: number) {
+    if (index === active) return;
+    setPrevious(active);
+    setActive(index);
+    setFadeKey((key) => key + 1);
+  }
 
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-background text-foreground">
-      <Image
-        key={heroSrc}
-        src={heroSrc}
-        alt={heroAlt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      <div className="absolute inset-0">
+        {previous !== null ? (
+          <Image
+            src={heroFrame(previous).src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            aria-hidden
+          />
+        ) : null}
+        <Image
+          key={fadeKey}
+          src={current.src}
+          alt={current.alt}
+          fill
+          priority
+          sizes="100vw"
+          className={`object-cover object-center ${
+            previous !== null ? "hero-crossfade-in" : ""
+          }`}
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/25" />
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-10 pt-28 sm:px-8 sm:pb-14">
@@ -86,7 +117,7 @@ export function HomeHero() {
                       role="listitem"
                       aria-pressed={selected}
                       aria-label={`Show ${project.title}`}
-                      onClick={() => setActive(index)}
+                      onClick={() => select(index)}
                       className={`relative aspect-[3/4] w-20 shrink-0 overflow-hidden rounded-lg ring-1 transition-[ring-color,opacity] sm:w-24 ${
                         selected
                           ? "ring-accent opacity-100"
