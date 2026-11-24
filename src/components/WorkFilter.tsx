@@ -56,7 +56,7 @@ export function WorkFilter({ projects }: WorkFilterProps) {
             <ProjectCard
               key={project.slug}
               project={project}
-              priority={index < 2}
+              priority={index < 4}
               className={index % 2 === 1 ? "sm:mt-16" : undefined}
             />
           ))}

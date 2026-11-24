@@ -33,6 +33,12 @@ const localVideos = [
     poster: "/images/projects/east-west-recap/cover.jpg",
     title: "East West Recap intro",
   },
+  {
+    id: "fumirai-sn",
+    src: "/videos/fumirai-sn-intro.mp4",
+    poster: "/images/projects/fumirai-sn/cover.jpg",
+    title: "Fumirai Birthday 1st year intro",
+  },
 ] as const;
 
 type VideoEmbedProps = {

@@ -8,6 +8,8 @@ const collage = [
     src: "/images/projects/girl-night-out/01.jpg",
     alt: "Night-out portrait frame",
     className: "col-start-1 row-start-1 aspect-[3/4]",
+    // ponytail: can win LCP on large viewports; keep eager only for top-row frames.
+    priority: true,
   },
   {
     src: "/images/projects/girl-night-out/04.jpg",
@@ -18,6 +20,7 @@ const collage = [
     src: "/images/projects/girl-night-out/cover.jpg",
     alt: "Featured night-out cover",
     className: "col-start-2 row-start-1 row-span-2 aspect-[3/4] self-center",
+    priority: true,
   },
   {
     src: "/images/projects/girl-night-out/09.jpg",
@@ -32,8 +35,9 @@ const collage = [
   {
     src: "/images/projects/fumirai-anniversary/cover.jpg",
     alt: "Event coverage frame",
+    // ponytail: explicit w needed — justify-self-center alone shrinks fill Image to height 0.
     className:
-      "col-start-2 row-start-3 hidden aspect-[4/3] max-h-40 justify-self-center sm:block md:max-h-48",
+      "col-start-2 row-start-3 hidden aspect-[4/3] w-40 justify-self-center sm:block md:w-48",
   },
 ] as const;
 
@@ -59,6 +63,9 @@ export function CaptureMomentsSection() {
               fill
               sizes="(max-width: 768px) 33vw, 20vw"
               className="object-cover"
+              {...("priority" in item && item.priority
+                ? { priority: true, loading: "eager" as const }
+                : {})}
             />
           </div>
         ))}

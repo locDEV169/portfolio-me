@@ -305,6 +305,25 @@ export const projects: Project[] = [
     videoUrl: "https://drive.google.com/file/d/1J6A-WP1GwIOssNY4RvypYyWzNvLSeaeR/preview",
     tags: ["event", "recap", "video"],
   },
+  {
+    slug: "fumirai-sn",
+    title: "Fumirai Birthday 1st year",
+    type: "video",
+    category: "Event",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "Fumirai’s first birthday highlight — event energy, crowd moments, and a clean motion cut.",
+    cover: {
+      src: "/images/projects/fumirai-sn/cover.jpg",
+      alt: "Fumirai Birthday 1st year video cover frame",
+    },
+    gallery: [],
+    // Full master on Drive; local intro at /videos/fumirai-sn-intro.mp4 for VideoEmbed.
+    videoUrl:
+      "https://drive.google.com/file/d/1ohn9SfP5ucd7PmAvzFZ1Kvd8ANc-ohxY/preview",
+    tags: ["fumirai", "event", "video"],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {

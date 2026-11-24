@@ -9,9 +9,9 @@ import { projects, type ProjectType } from "@/data/projects";
 
 export function SelectedWorksSection() {
   const [activeType, setActiveType] = useState<ProjectType>("photo");
-  const featured = projects
-    .filter((project) => project.type === activeType)
-    .slice(0, 4);
+  const byType = projects.filter((project) => project.type === activeType);
+  // ponytail: photo stays a short selected grid; video needs every project so VideoEmbed titles match intros.
+  const featured = activeType === "photo" ? byType.slice(0, 4) : byType;
   const heading =
     activeType === "photo" ? "Photography Works" : "Videography Works";
 
@@ -78,7 +78,7 @@ export function SelectedWorksSection() {
               >
                 <ProjectCard
                   project={project}
-                  priority={index < 2}
+                  priority
                   index={index + 1}
                   variant="overlay"
                 />
