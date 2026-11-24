@@ -27,7 +27,8 @@ export const site = {
     {
       id: "tiktok",
       label: "TikTok",
-      handle: "@lockiee_vlog",
+      handle: "@_w.nn_",
+      href: "https://www.tiktok.com/@_w.nn_",
     },
   ],
 

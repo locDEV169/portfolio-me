@@ -1,94 +1,120 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 
-const collage = [
-  {
-    src: "/images/projects/girl-night-out/01.jpg",
-    alt: "Night-out portrait frame",
-    className: "col-start-1 row-start-1 aspect-[3/4]",
-    // ponytail: can win LCP on large viewports; keep eager only for top-row frames.
-    priority: true,
-  },
-  {
-    src: "/images/projects/girl-night-out/04.jpg",
-    alt: "Dynamic night-out portrait",
-    className: "col-start-1 row-start-2 aspect-[3/4] sm:translate-y-6",
-  },
-  {
-    src: "/images/projects/girl-night-out/cover.jpg",
-    alt: "Featured night-out cover",
-    className: "col-start-2 row-start-1 row-span-2 aspect-[3/4] self-center",
-    priority: true,
-  },
-  {
-    src: "/images/projects/girl-night-out/09.jpg",
-    alt: "Profile portrait from the set",
-    className: "col-start-3 row-start-1 aspect-[3/4] sm:-translate-y-4",
-  },
-  {
-    src: "/images/projects/girl-night-out/07.jpg",
-    alt: "Candid night-out moment",
-    className: "col-start-3 row-start-2 aspect-[3/4]",
-  },
-  {
-    src: "/images/projects/fumirai-anniversary/cover.jpg",
-    alt: "Event coverage frame",
-    // ponytail: explicit w needed — justify-self-center alone shrinks fill Image to height 0.
-    className:
-      "col-start-2 row-start-3 hidden aspect-[4/3] w-40 justify-self-center sm:block md:w-48",
-  },
+// ponytail: local covers/frames only — enough for a Belinda-lite ticker without new assets.
+const tickerColumns = [
+  [
+    "/images/projects/girl-night-out/cover.jpg",
+    "/images/projects/girl-night-out/01.jpg",
+    "/images/projects/cosplay-day/cover.jpg",
+    "/images/projects/ao-dai/cover.jpg",
+  ],
+  [
+    "/images/projects/summer-vibes-sea/01.jpg",
+    "/images/projects/food-fnb/cover.jpg",
+    "/images/projects/high-light-dj/cover.jpg",
+    "/images/projects/fumirai-anniversary/cover.jpg",
+  ],
+  [
+    "/images/projects/ao-dai/01.jpg",
+    "/images/projects/girl-night-out/04.jpg",
+    "/images/projects/summer-vibes-sea/03.jpg",
+    "/images/projects/high-light-dj/dj-amor/LOC05303.jpg",
+  ],
+  [
+    "/images/projects/food-fnb/1.jpg",
+    "/images/projects/girl-night-out/07.jpg",
+    "/images/projects/summer-vibes-sea/05.jpg",
+    "/images/projects/ao-dai/05.jpg",
+  ],
 ] as const;
+
+function TickerColumn({
+  images,
+  reverse,
+}: {
+  images: readonly string[];
+  reverse?: boolean;
+}) {
+  // Duplicate list so translateY(-50%) loops seamlessly.
+  const loop = [...images, ...images];
+
+  return (
+    <div className="relative min-h-0 flex-1 overflow-hidden rounded-xl">
+      <div
+        className={`flex flex-col gap-4 ${
+          reverse ? "ticker-track-reverse" : "ticker-track"
+        }`}
+      >
+        {loop.map((src, index) => (
+          <div
+            key={`${src}-${index}`}
+            className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-xl bg-surface"
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 45vw, 22vw"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function CaptureMomentsSection() {
   return (
     <section
       id="capture"
-      className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 sm:py-28"
+      aria-labelledby="book-shoot-heading"
+      className="relative isolate min-h-[70vh] overflow-hidden bg-background text-foreground sm:min-h-[80vh]"
     >
-      {/* Collage layer */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 mx-auto grid max-w-6xl grid-cols-3 gap-3 opacity-35 sm:gap-4 md:opacity-45"
+        className="absolute inset-0 grid grid-cols-2 gap-3 p-3 opacity-55 sm:grid-cols-4 sm:gap-4 sm:p-4 md:opacity-70"
       >
-        {collage.map((item) => (
-          <div
-            key={item.src}
-            className={`relative overflow-hidden rounded-2xl ${item.className}`}
-          >
-            <Image
-              src={item.src}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 33vw, 20vw"
-              className="object-cover"
-              priority={"priority" in item ? item.priority : false}
-            />
-          </div>
+        {tickerColumns.map((images, index) => (
+          <TickerColumn
+            key={index}
+            images={images}
+            reverse={index % 2 === 1}
+          />
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/85" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-background/55 sm:bg-background/45"
+      />
 
-      <Reveal className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-        <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-          Book a shoot
-        </p>
-        <h2 className="mt-3 font-display text-4xl tracking-tight uppercase sm:text-5xl md:text-6xl">
-          Let&apos;s capture beautiful moments together
-        </h2>
-        <p className="mt-5 max-w-xl text-base text-muted sm:text-lg">
-          {site.name} — {site.tagline}. Street frames, events, and quick
-          cinematic takes from {site.location}.
-        </p>
-        <Link
-          href="/contact"
-          className="mt-8 inline-flex rounded-lg bg-accent px-7 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
-        >
-          Let&apos;s Talk
-        </Link>
-      </Reveal>
+      <div className="relative flex min-h-[70vh] items-center justify-center px-5 py-20 sm:min-h-[80vh] sm:px-8 sm:py-28">
+        <div className="w-full max-w-md rounded-2xl bg-transparent px-6 py-10 text-center ring-1 ring-border backdrop-blur-md sm:px-10 sm:py-12">
+          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+            Book a shoot
+          </p>
+          {/* <h2
+            id="book-shoot-heading"
+            className="mt-4 font-display text-4xl tracking-tight uppercase sm:text-5xl"
+          >
+            Book a shoot
+          </h2> */}
+          <p className="mt-4 text-sm text-muted sm:text-base">
+            {site.name} — {site.tagline}. Street frames, events, and quick
+            cinematic takes from {site.location}.
+          </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+          >
+            Contact
+            <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

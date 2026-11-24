@@ -81,6 +81,33 @@ body {
   animation-delay: 0.24s;
 }
 
+/* Belinda-lite vertical image tickers (CaptureMomentsSection) */
+@keyframes ticker-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes ticker-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.ticker-track {
+  animation: ticker-up 42s linear infinite;
+}
+
+.ticker-track-reverse {
+  animation: ticker-down 48s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade-up,
   .reveal.is-visible {
@@ -90,5 +117,10 @@ body {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .ticker-track,
+  .ticker-track-reverse {
+    animation: none;
   }
 }

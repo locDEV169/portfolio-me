@@ -13,7 +13,7 @@ export default function Home() {
       <ServicesSection />
       <SelectedWorksSection />
       <CaptureMomentsSection />
-      <FaqSection />
+      {/* <FaqSection /> */}
     </>
   );
 }
