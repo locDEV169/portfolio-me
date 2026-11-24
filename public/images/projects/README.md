@@ -17,6 +17,7 @@ public/images/projects/<slug>/
 2. Create a folder named after the project `slug` in `src/data/projects.ts`.
 3. Resize long edge ~1600–2000px before commit when possible.
 4. Point `cover.src` / `gallery[].src` to `/images/projects/<slug>/...`.
+5. Optional Supabase: put `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`, run `pnpm media:upload`, then set `NEXT_PUBLIC_MEDIA_SOURCE=supabase`.
 
 ## Current local sets
 

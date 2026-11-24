@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
+import { media } from "@/lib/media";
 
 export function IntroSection() {
   return (
@@ -46,7 +47,7 @@ export function IntroSection() {
         <div className="mt-14 grid items-end gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <Reveal delay={1} className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl bg-surface ring-1 ring-border lg:mx-0">
             <Image
-              src={site.introImage.src}
+              src={media(site.introImage.src)}
               alt={site.introImage.alt}
               fill
               sizes="(max-width: 1024px) 320px, 360px"

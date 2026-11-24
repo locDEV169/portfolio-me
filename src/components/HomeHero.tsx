@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
+import { media } from "@/lib/media";
 
 const featuredPhotos = projects
   .filter((project) => project.type === "photo")
@@ -13,7 +14,9 @@ const featuredPhotos = projects
 export function HomeHero() {
   const [active, setActive] = useState(0);
   const activeProject = featuredPhotos[active] ?? null;
-  const heroSrc = activeProject?.cover.src ?? site.heroImage.src;
+  const heroSrc = media(
+    activeProject?.cover.src ?? site.heroImage.src,
+  );
   const heroAlt = activeProject?.cover.alt ?? site.heroImage.alt;
 
   return (

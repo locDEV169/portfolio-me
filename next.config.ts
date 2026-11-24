@@ -1,8 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "qminazmqmvijhxoerujn.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
+  },
   turbopack: {
     rules: {
       "*.css": {

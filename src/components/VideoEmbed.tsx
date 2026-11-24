@@ -2,6 +2,7 @@
 
 import { ProjectCard } from "@/components/ProjectCard";
 import type { Project } from "@/data/projects";
+import { media } from "@/lib/media";
 
 const INTRO_SECONDS = 15;
 const YOUTUBE_ID = "ALzSOSLiAXs";
@@ -116,7 +117,7 @@ export function VideoEmbed({
                 loop
                 playsInline
                 preload="metadata"
-                poster={video.poster}
+                poster={media(video.poster)}
                 aria-label={video.title}
                 className="h-full w-full object-contain"
               >

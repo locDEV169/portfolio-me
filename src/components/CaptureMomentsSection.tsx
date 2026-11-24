@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
+import { media } from "@/lib/media";
 
 // ponytail: local covers/frames only — enough for a Belinda-lite ticker without new assets.
 const tickerColumns = [
@@ -53,7 +54,7 @@ function TickerColumn({
             className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-xl bg-surface"
           >
             <Image
-              src={src}
+              src={media(src)}
               alt=""
               fill
               sizes="(max-width: 768px) 45vw, 22vw"

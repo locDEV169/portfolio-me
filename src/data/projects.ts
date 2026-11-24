@@ -1,3 +1,5 @@
+import { media } from "@/lib/media";
+
 export type ProjectType = "photo" | "video";
 
 export type Project = {
@@ -17,7 +19,18 @@ export type Project = {
   tags: string[];
 };
 
-export const projects: Project[] = [
+function withMediaUrls(project: Project): Project {
+  return {
+    ...project,
+    cover: { ...project.cover, src: media(project.cover.src) },
+    gallery: project.gallery.map((item) => ({
+      ...item,
+      src: media(item.src),
+    })),
+  };
+}
+
+const rawProjects: Project[] = [
   {
     slug: "girl-night-out",
     title: "Girl Night Out",
@@ -559,6 +572,8 @@ export const projects: Project[] = [
     tags: ["fumirai", "event", "video"],
   },
 ];
+
+export const projects: Project[] = rawProjects.map(withMediaUrls);
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
