@@ -397,6 +397,55 @@ export const projects: Project[] = [
     tags: ["dj", "nightlife", "event"],
   },
   {
+    slug: "food-fnb",
+    title: "Food F&B",
+    type: "photo",
+    category: "Food",
+    location: "Da Nang, Viet Nam",
+    year: "2025",
+    summary:
+      "Food and beverage stills — plated dishes, texture close-ups, and warm table light for F&B storytelling.",
+    cover: {
+      src: "/images/projects/food-fnb/cover.jpg",
+      alt: "Food F&B cover plate",
+    },
+    gallery: [
+      {
+        src: "/images/projects/food-fnb/1.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/2.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/3.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/4.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/5.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/6.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/7.jpg",
+        alt: "Food and F&B detail frame",
+      },
+      {
+        src: "/images/projects/food-fnb/8.jpg",
+        alt: "Food and F&B detail frame",
+      },
+    ],
+    tags: ["food", "fnb", "still-life"],
+  },
+  {
     slug: "fumirai-anniversary",
     title: "Fumirai Anniversary",
     type: "photo",
