@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import { WorkFilter } from "@/components/WorkFilter";
 import { projects } from "@/data/projects";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Work",
 };
 

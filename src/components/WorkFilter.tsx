@@ -1,71 +1,74 @@
-"use client";
-
-import { useState } from "react";
-import type { Project, ProjectType } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { VideoEmbed } from "@/components/VideoEmbed";
-
-const filters = ["all", "photo", "video"] as const;
-type Filter = (typeof filters)[number];
 
 type WorkFilterProps = {
   projects: Project[];
 };
 
 export function WorkFilter({ projects }: WorkFilterProps) {
-  const [filter, setFilter] = useState<Filter>("all");
-
-  const visible =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.type === (filter as ProjectType));
+  const photos = projects.filter((project) => project.type === "photo");
+  const videos = projects.filter((project) => project.type === "video");
 
   return (
-    <div>
-      <div
-        className="flex flex-wrap gap-2"
-        role="tablist"
-        aria-label="Filter projects"
-      >
-        {filters.map((value) => {
-          const active = filter === value;
-          return (
-            <button
-              key={value}
-              type="button"
-              role="tab"
-              aria-selected={active}
-              onClick={() => setFilter(value)}
-              className={`rounded-full px-4 py-2 text-sm capitalize transition-colors ${
-                active
-                  ? "bg-inverse text-inverse-fg"
-                  : "border border-border text-muted hover:border-foreground hover:text-foreground"
-              }`}
-            >
-              {value}
-            </button>
-          );
-        })}
-      </div>
-
-      {filter === "video" ? (
-        <VideoEmbed projects={visible} cardVariant="stack" />
-      ) : (
-        <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-16">
-          {visible.map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              priority={index < 4}
-              className={index % 2 === 1 ? "sm:mt-16" : undefined}
-            />
-          ))}
+    <div className="flex flex-col gap-16 sm:gap-20">
+      <section aria-labelledby="work-photo-heading">
+        <div className="max-w-xl">
+          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+            Photography
+          </p>
+          <h2
+            id="work-photo-heading"
+            className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-4xl"
+          >
+            Photography Works
+          </h2>
+          <p className="mt-3 text-sm text-muted sm:text-base">
+            Still sets from recent shoots.
+          </p>
         </div>
-      )}
 
-      {visible.length === 0 ? (
-        <p className="mt-10 text-muted">No projects in this filter yet.</p>
-      ) : null}
+        {photos.length > 0 ? (
+          <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-16">
+            {photos.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                priority={index < 4}
+                className={index % 2 === 1 ? "sm:mt-16" : undefined}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="mt-10 text-muted">No photography projects yet.</p>
+        )}
+      </section>
+
+      <section
+        aria-labelledby="work-video-heading"
+        className="border-t border-border pt-16 sm:pt-20"
+      >
+        <div className="max-w-xl">
+          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+            Videography
+          </p>
+          <h2
+            id="work-video-heading"
+            className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-4xl"
+          >
+            Videography Works
+          </h2>
+          <p className="mt-3 text-sm text-muted sm:text-base">
+            Short intros and motion cuts.
+          </p>
+        </div>
+
+        {videos.length > 0 ? (
+          <VideoEmbed projects={videos} cardVariant="stack" />
+        ) : (
+          <p className="mt-10 text-muted">No videography projects yet.</p>
+        )}
+      </section>
     </div>
   );
 }
