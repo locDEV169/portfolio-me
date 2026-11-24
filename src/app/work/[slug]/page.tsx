@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">) {
 
 type Params = PageProps<"/work/[slug]">["params"];
 
+function isLocalVideoUrl(url: string) {
+  return /\.(mp4|webm|mov)(\?.*)?$/i.test(url);
+}
+
 async function ProjectContent({ params }: { params: Params }) {
   const { slug } = await params;
   const project = getProject(slug);
@@ -70,30 +74,45 @@ async function ProjectContent({ params }: { params: Params }) {
       {project.videoUrl ? (
         <div className="mx-auto max-w-5xl px-5 pb-12 sm:px-8">
           <div className="aspect-video overflow-hidden bg-surface">
-            <iframe
-              src={project.videoUrl}
-              title={`${project.title} video`}
-              className="h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {isLocalVideoUrl(project.videoUrl) ? (
+              <video
+                src={project.videoUrl}
+                controls
+                playsInline
+                preload="metadata"
+                poster={project.cover.src}
+                className="h-full w-full object-contain"
+              >
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <iframe
+                src={project.videoUrl}
+                title={`${project.title} video`}
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
           </div>
         </div>
       ) : null}
 
-      <div className="mx-auto grid max-w-6xl gap-4 px-5 pb-20 sm:grid-cols-2 sm:px-8">
-        {project.gallery.map((image) => (
-          <div key={image.src} className="relative aspect-[4/5] bg-surface">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
+      {project.gallery.length > 0 ? (
+        <div className="mx-auto grid max-w-6xl gap-4 px-5 pb-20 sm:grid-cols-2 sm:px-8">
+          {project.gallery.map((image) => (
+            <div key={image.src} className="relative aspect-[4/5] bg-surface">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      ) : null}
     </article>
   );
 }

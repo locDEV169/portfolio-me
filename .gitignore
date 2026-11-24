@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Full master videos live on Google Drive (keep lightweight *-intro.mp4 in repo).
+/public/videos/*.mp4
+!/public/videos/*-intro.mp4

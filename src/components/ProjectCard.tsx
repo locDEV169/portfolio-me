@@ -10,6 +10,8 @@ type ProjectCardProps = {
   index?: number;
   /** stack = caption below (Work page); overlay = meta on image (Home Selected Works) */
   variant?: "stack" | "overlay";
+  /** image = show cover; none = title/meta only (e.g. under an intro player) */
+  media?: "image" | "none";
 };
 
 export function ProjectCard({
@@ -18,9 +20,47 @@ export function ProjectCard({
   className = "",
   index,
   variant = "stack",
+  media = "image",
 }: ProjectCardProps) {
   const number =
     typeof index === "number" ? String(index).padStart(2, "0") : null;
+
+  if (media === "none") {
+    return (
+      <article className={className}>
+        <Link
+          href={`/work/${project.slug}`}
+          className="group flex items-start justify-between gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        >
+          <div>
+            {number ? (
+              <p className="font-mono text-[11px] tracking-[0.16em] text-accent uppercase">
+                {number}
+                <span className="text-muted"> · </span>
+                {project.category}
+                <span className="text-muted"> · {project.year}</span>
+              </p>
+            ) : (
+              <p className="font-mono text-[11px] tracking-[0.16em] text-accent uppercase">
+                {project.category}
+                <span className="text-muted"> · {project.year}</span>
+              </p>
+            )}
+            <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-[1.75rem]">
+              {project.title}
+            </h2>
+          </div>
+          <span
+            aria-hidden
+            className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border text-foreground transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-inverse-fg"
+          >
+            →
+          </span>
+          <span className="sr-only">View {project.title}</span>
+        </Link>
+      </article>
+    );
+  }
 
   if (variant === "overlay") {
     return (

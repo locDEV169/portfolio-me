@@ -67,7 +67,9 @@ export function SelectedWorksSection() {
           })}
         </div>
 
-        {featured.length > 0 ? (
+        {activeType === "video" ? (
+          <VideoEmbed projects={featured} cardVariant="overlay" />
+        ) : featured.length > 0 ? (
           <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5">
             {featured.map((project, index) => (
               <Reveal
@@ -84,7 +86,7 @@ export function SelectedWorksSection() {
             ))}
           </div>
         ) : (
-          <VideoEmbed />
+          <p className="mt-8 text-muted">No projects in this category yet.</p>
         )}
       </div>
     </section>

@@ -236,7 +236,75 @@ export const projects: Project[] = [
     ],
     tags: ["event", "corporate", "group"],
   },
-
+  {
+    slug: "visual-side-effect",
+    title: "Visual Side Effect - Edit by DJ Amor",
+    type: "video",
+    category: "Visual",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "Side Effect visual — soft motion, mood lighting, and a looping Amor cut. - Visutal by Me",
+    cover: {
+      src: "/images/projects/visual-side-effect/cover.jpg",
+      alt: "Visual Side Effect video cover frame",
+    },
+    gallery: [],
+    // Full master on Drive; local intro stays in /videos/*-intro.mp4 for VideoEmbed.
+    videoUrl: "https://drive.google.com/file/d/18PGCZqRvLUHe3o6AwZCbnDfGeOMqiFdd/preview",
+    tags: ["visual", "side-effect", "video"],
+  },
+  {
+    slug: "recap-hlw-2",
+    title: "Halloween Recap",
+    type: "video",
+    category: "Recap",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "A Halloween night recap — quick cuts, party energy, and street-adjacent motion from Recap HLW 2.",
+    cover: {
+      src: "/images/projects/recap-hlw-2/cover.jpg",
+      alt: "Halloween Recap video cover frame",
+    },
+    gallery: [],
+    videoUrl: "https://drive.google.com/file/d/1Aqzbt8EqaVBuXpp01PYY4o-ZkBTqxIOr/preview",
+    tags: ["halloween", "recap", "video"],
+  },
+  {
+    slug: "cau-long-fien",
+    title: "Cầu lông Fien",
+    type: "video",
+    category: "Sports",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "Badminton day with Fien — rally rhythm, court energy, and quick motion cuts.",
+    cover: {
+      src: "/images/projects/cau-long-fien/cover.jpg",
+      alt: "Cầu lông Fien video cover frame",
+    },
+    gallery: [],
+    videoUrl: "https://drive.google.com/file/d/1Rfz3hPKTV0uFEG2d_ko8z7MTEUqgWR-U/preview",
+    tags: ["badminton", "sports", "video"],
+  },
+  {
+    slug: "east-west-recap",
+    title: "East West Recap",
+    type: "video",
+    category: "Recap",
+    location: "Da Nang, Viet Nam",
+    year: "2026",
+    summary:
+      "East West recap — event pace, crowd moments, and a clean highlight cut.",
+    cover: {
+      src: "/images/projects/east-west-recap/cover.jpg",
+      alt: "East West Recap video cover frame",
+    },
+    gallery: [],
+    videoUrl: "https://drive.google.com/file/d/1J6A-WP1GwIOssNY4RvypYyWzNvLSeaeR/preview",
+    tags: ["event", "recap", "video"],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {

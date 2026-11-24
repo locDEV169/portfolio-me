@@ -47,22 +47,24 @@ export function WorkFilter({ projects }: WorkFilterProps) {
           );
         })}
       </div>
-      <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-16">
-        {visible.map((project, index) => (
-          <ProjectCard
-            key={project.slug}
-            project={project}
-            priority={index < 2}
-            className={index % 2 === 1 ? "sm:mt-16" : undefined}
-          />
-        ))}
-      </div>
+
+      {filter === "video" ? (
+        <VideoEmbed projects={visible} cardVariant="stack" />
+      ) : (
+        <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-16">
+          {visible.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              priority={index < 2}
+              className={index % 2 === 1 ? "sm:mt-16" : undefined}
+            />
+          ))}
+        </div>
+      )}
+
       {visible.length === 0 ? (
-        filter === "video" ? (
-          <VideoEmbed />
-        ) : (
-          <p className="mt-10 text-muted">No projects in this filter yet.</p>
-        )
+        <p className="mt-10 text-muted">No projects in this filter yet.</p>
       ) : null}
     </div>
   );
