@@ -13,6 +13,12 @@
   --border: #2a2c2f;
   --inverse: #f4f4f5;
   --inverse-fg: #0c0c0d;
+
+  /* motion tokens — shared by enter / reveal / feedback */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --motion-enter-duration: 0.55s;
+  --motion-reveal-y: 24px;
 }
 
 @theme inline {
@@ -46,39 +52,40 @@ body {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(var(--motion-reveal-y)) scale(0.985);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 /* Load-time fade (Hero etc.) */
 .fade-up {
-  animation: fade-up 0.85s ease-out both;
+  animation: fade-up var(--motion-enter-duration) var(--ease-out) both;
 }
 
 /* Scroll enter-view — Reveal toggles .is-visible once */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(var(--motion-reveal-y)) scale(0.985);
 }
 
 .reveal.is-visible {
-  animation: fade-up 0.85s ease-out both;
+  animation: fade-up var(--motion-enter-duration) var(--ease-out) both;
 }
 
+/* Non-uniform stagger — cascade feels less mechanical */
 .fade-up-delay-1 {
-  animation-delay: 0.08s;
+  animation-delay: 0.05s;
 }
 
 .fade-up-delay-2 {
-  animation-delay: 0.16s;
+  animation-delay: 0.09s;
 }
 
 .fade-up-delay-3 {
-  animation-delay: 0.24s;
+  animation-delay: 0.14s;
 }
 
 /* Belinda-lite vertical image tickers (CaptureMomentsSection) */
@@ -108,7 +115,29 @@ body {
   animation: ticker-down 48s linear infinite;
 }
 
-/* Hero background crossfade (thumb change) */
+/* Pause ambient marquee while inspecting — hover-capable pointers only */
+@media (hover: hover) and (pointer: fine) {
+  .ticker-stage:hover .ticker-track,
+  .ticker-stage:hover .ticker-track-reverse {
+    animation-play-state: paused;
+  }
+}
+
+/* Press / tap feedback — primary & secondary CTAs */
+.pressable {
+  transition:
+    transform 140ms var(--ease-out),
+    opacity 140ms var(--ease-out),
+    border-color 140ms ease,
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.pressable:active {
+  transform: scale(0.97);
+}
+
+/* Hero background crossfade (thumb change) — state indication */
 @keyframes hero-crossfade-in {
   from {
     opacity: 0;
@@ -119,17 +148,56 @@ body {
 }
 
 .hero-crossfade-in {
-  animation: hero-crossfade-in 0.65s ease-out forwards;
+  animation: hero-crossfade-in 0.4s var(--ease-out) forwards;
+}
+
+/* Ken Burns-lite — soft scale on active full-bleed (Belinda-feel, CSS only) */
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 12s linear forwards;
+}
+
+.hero-crossfade-in.hero-ken-burns {
+  animation:
+    hero-crossfade-in 0.4s var(--ease-out) forwards,
+    hero-ken-burns 12s linear forwards;
+}
+
+@keyframes fade-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Page transition — template ViewTransition (main only; layout stays) */
+::view-transition-old(.page-fade) {
+  animation: 140ms var(--ease-out) both fade-opacity reverse;
+}
+
+::view-transition-new(.page-fade) {
+  animation: 220ms var(--ease-out) both fade-opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fade-up,
   .reveal.is-visible {
-    animation: none;
+    animation: fade-opacity 0.35s var(--ease-out) both;
+    transform: none;
   }
 
   .reveal {
-    opacity: 1;
+    opacity: 0;
     transform: none;
   }
 
@@ -141,5 +209,20 @@ body {
   .hero-crossfade-in {
     animation: none;
     opacity: 1;
+  }
+
+  .hero-ken-burns,
+  .hero-crossfade-in.hero-ken-burns {
+    animation: none;
+    transform: none;
+  }
+
+  .pressable:active {
+    transform: none;
+  }
+
+  ::view-transition-old(.page-fade),
+  ::view-transition-new(.page-fade) {
+    animation: none;
   }
 }

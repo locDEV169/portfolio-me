@@ -77,7 +77,7 @@ export function CaptureMomentsSection() {
     >
       <div
         aria-hidden
-        className="absolute inset-0 grid grid-cols-2 gap-3 p-3 opacity-55 sm:grid-cols-4 sm:gap-4 sm:p-4 md:opacity-70"
+        className="ticker-stage absolute inset-0 grid grid-cols-2 gap-3 p-3 opacity-55 sm:grid-cols-4 sm:gap-4 sm:p-4 md:opacity-70"
       >
         {tickerColumns.map((images, index) => (
           <TickerColumn
@@ -110,7 +110,7 @@ export function CaptureMomentsSection() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+            className="pressable mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-7 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
           >
             Contact
             <span aria-hidden>→</span>

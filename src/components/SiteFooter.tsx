@@ -125,7 +125,7 @@ export function SiteFooter() {
             ) : null}
             <Link
               href="/contact"
-              className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+              className="pressable inline-flex rounded-lg bg-accent px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase hover:opacity-90"
             >
               Let&apos;s Talk
             </Link>

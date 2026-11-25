@@ -98,7 +98,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="rounded-full bg-inverse px-6 py-3 text-sm text-inverse-fg transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="pressable rounded-full bg-inverse px-6 py-3 text-sm text-inverse-fg hover:opacity-90 disabled:opacity-60"
       >
         {state === "submitting" ? "Sending…" : "Send message"}
       </button>

@@ -33,7 +33,7 @@ export default function AboutPage() {
       <div className="mt-10 flex flex-wrap gap-3">
         <Link
           href="/contact"
-          className="inline-flex rounded-full bg-inverse px-6 py-3 text-sm text-inverse-fg transition-opacity hover:opacity-90"
+          className="pressable inline-flex rounded-full bg-inverse px-6 py-3 text-sm text-inverse-fg hover:opacity-90"
         >
           Get in touch
         </Link>

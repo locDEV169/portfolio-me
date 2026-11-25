@@ -53,7 +53,7 @@ export function HomeHero() {
           fill
           priority
           sizes="100vw"
-          className={`object-cover object-center ${
+          className={`hero-ken-burns object-cover object-center ${
             previous !== null ? "hero-crossfade-in" : ""
           }`}
         />
@@ -87,13 +87,13 @@ export function HomeHero() {
             <div className="fade-up fade-up-delay-3 mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+                className="pressable rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
               >
                 Let&apos;s Talk
               </Link>
               <Link
                 href="/work"
-                className="rounded-lg border border-foreground/35 px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground uppercase transition-colors hover:border-foreground"
+                className="pressable rounded-lg border border-foreground/35 px-6 py-3 text-xs font-medium tracking-[0.14em] text-foreground uppercase hover:border-foreground"
               >
                 View work
               </Link>
@@ -103,7 +103,7 @@ export function HomeHero() {
           {featuredPhotos.length > 0 ? (
             // ponytail: justify-end on overflow flex clips the start (01–02). Align with inner ml-auto instead.
             <div
-              className="fade-up fade-up-delay-3 overflow-x-auto pb-1"
+              className="fade-up fade-up-delay-3 overflow-x-auto pb-1 scrollbar-none overflow-auto"
               role="list"
               aria-label="Featured photo projects"
             >
@@ -111,6 +111,7 @@ export function HomeHero() {
                 {featuredPhotos.map((project, index) => {
                   const selected = index === active;
                   return (
+                    // eslint-disable-next-line jsx-a11y/role-supports-aria-props
                     <button
                       key={project.slug}
                       type="button"
@@ -118,7 +119,7 @@ export function HomeHero() {
                       aria-pressed={selected}
                       aria-label={`Show ${project.title}`}
                       onClick={() => select(index)}
-                      className={`relative aspect-[3/4] w-20 shrink-0 overflow-hidden rounded-lg ring-1 transition-[ring-color,opacity] sm:w-24 ${
+                      className={`pressable relative aspect-3/4 w-20 shrink-0 overflow-hidden rounded-lg ring-1 sm:w-24 ${
                         selected
                           ? "ring-accent opacity-100"
                           : "ring-border/80 opacity-70 hover:opacity-100"

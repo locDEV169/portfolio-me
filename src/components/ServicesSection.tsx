@@ -55,7 +55,7 @@ export function ServicesSection() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+              className="pressable inline-flex rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
             >
               Contact me
             </Link>

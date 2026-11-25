@@ -69,7 +69,7 @@ export function SiteHeader() {
 
             <Link
               href="/contact"
-              className="hidden rounded-lg bg-accent px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase transition-opacity hover:opacity-90 sm:inline-flex"
+              className="pressable hidden rounded-lg bg-accent px-4 py-2.5 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase hover:opacity-90 sm:inline-flex"
             >
               Let&apos;s Talk
             </Link>
@@ -168,7 +168,7 @@ export function SiteHeader() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-3 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+                className="pressable inline-flex items-center justify-center rounded-lg bg-accent px-5 py-3 text-xs font-bold tracking-[0.12em] text-inverse-fg uppercase hover:opacity-90"
                 onClick={() => setOpen(false)}
               >
                 Let&apos;s Talk

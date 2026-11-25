@@ -44,7 +44,7 @@ export function IntroSection() {
         </Reveal>
 
         <div className="mt-14 grid items-end gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <Reveal delay={1} className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl bg-surface ring-1 ring-border lg:mx-0">
+          <Reveal delay={1} className="relative mx-auto aspect-3/4 w-full max-w-xs overflow-hidden rounded-2xl bg-surface ring-1 ring-border lg:mx-0">
             <Image
               src={site.introImage.src}
               alt={site.introImage.alt}
@@ -69,7 +69,7 @@ export function IntroSection() {
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase transition-opacity hover:opacity-90"
+              className="pressable mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
             >
               Get in touch
               <span aria-hidden>→</span>
