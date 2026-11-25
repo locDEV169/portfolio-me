@@ -85,17 +85,17 @@ export function SiteHeader() {
               <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
               <span className="flex w-5 flex-col gap-1.5" aria-hidden>
                 <span
-                  className={`block h-0.5 w-full bg-foreground transition-transform ${
+                  className={`block h-0.5 w-full bg-foreground transition-[transform,opacity] duration-[140ms] [transition-timing-function:var(--ease-out)] ${
                     open ? "translate-y-[7px] rotate-45" : ""
                   }`}
                 />
                 <span
-                  className={`block h-0.5 w-full bg-foreground transition-opacity ${
+                  className={`block h-0.5 w-full bg-foreground transition-opacity duration-[140ms] [transition-timing-function:var(--ease-out)] ${
                     open ? "opacity-0" : ""
                   }`}
                 />
                 <span
-                  className={`block h-0.5 w-full bg-foreground transition-transform ${
+                  className={`block h-0.5 w-full bg-foreground transition-[transform,opacity] duration-[140ms] [transition-timing-function:var(--ease-out)] ${
                     open ? "-translate-y-[7px] -rotate-45" : ""
                   }`}
                 />
@@ -109,7 +109,7 @@ export function SiteHeader() {
             id={menuId}
             role="dialog"
             aria-label="Navigation"
-            className="absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 overflow-hidden rounded-2xl bg-surface/95 p-5 shadow-lg ring-1 ring-border backdrop-blur-md sm:p-6"
+            className="menu-enter absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 overflow-hidden rounded-2xl bg-surface/95 p-5 shadow-lg ring-1 ring-border backdrop-blur-md sm:p-6"
           >
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
               <div>
@@ -182,7 +182,7 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Close menu overlay"
-          className="fixed inset-0 z-30 bg-background/60 backdrop-blur-[2px]"
+          className="menu-backdrop-enter fixed inset-0 z-30 bg-background/60 backdrop-blur-[2px]"
           onClick={() => setOpen(false)}
         />
       ) : null}

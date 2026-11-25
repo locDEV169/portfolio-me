@@ -14,11 +14,14 @@
   --inverse: #f4f4f5;
   --inverse-fg: #0c0c0d;
 
-  /* motion tokens — shared by enter / reveal / feedback */
+  /* motion tokens — cinematic / editorial (designer · video · motion) */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --motion-enter-duration: 0.55s;
-  --motion-reveal-y: 24px;
+  --motion-enter-duration: 0.7s;
+  --motion-hero-duration: 0.9s;
+  --motion-dissolve: 0.55s;
+  --motion-reveal-y: 32px;
+  --motion-media-duration: 0.85s;
 }
 
 @theme inline {
@@ -52,7 +55,7 @@ body {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(var(--motion-reveal-y)) scale(0.985);
+    transform: translateY(var(--motion-reveal-y)) scale(0.97);
   }
   to {
     opacity: 1;
@@ -60,32 +63,37 @@ body {
   }
 }
 
-/* Load-time fade (Hero etc.) */
+/* Load-time fade (sections) */
 .fade-up {
   animation: fade-up var(--motion-enter-duration) var(--ease-out) both;
+}
+
+/* Hero first paint — longer beat, editorial title cards */
+.fade-up-hero {
+  animation: fade-up var(--motion-hero-duration) var(--ease-out) both;
 }
 
 /* Scroll enter-view — Reveal toggles .is-visible once */
 .reveal {
   opacity: 0;
-  transform: translateY(var(--motion-reveal-y)) scale(0.985);
+  transform: translateY(var(--motion-reveal-y)) scale(0.97);
 }
 
 .reveal.is-visible {
   animation: fade-up var(--motion-enter-duration) var(--ease-out) both;
 }
 
-/* Non-uniform stagger — cascade feels less mechanical */
+/* Non-uniform stagger — editorial cascade */
 .fade-up-delay-1 {
-  animation-delay: 0.05s;
+  animation-delay: 0.1s;
 }
 
 .fade-up-delay-2 {
-  animation-delay: 0.09s;
+  animation-delay: 0.2s;
 }
 
 .fade-up-delay-3 {
-  animation-delay: 0.14s;
+  animation-delay: 0.34s;
 }
 
 /* Belinda-lite vertical image tickers (CaptureMomentsSection) */
@@ -137,7 +145,7 @@ body {
   transform: scale(0.97);
 }
 
-/* Hero background crossfade (thumb change) — state indication */
+/* Film dissolve — opacity only so Ken Burns owns transform */
 @keyframes hero-crossfade-in {
   from {
     opacity: 0;
@@ -148,27 +156,67 @@ body {
 }
 
 .hero-crossfade-in {
-  animation: hero-crossfade-in 0.4s var(--ease-out) forwards;
+  animation: hero-crossfade-in var(--motion-dissolve) var(--ease-out) forwards;
 }
 
-/* Ken Burns-lite — soft scale on active full-bleed (Belinda-feel, CSS only) */
+/* Ken Burns — slow push-in, videography ambient */
 @keyframes hero-ken-burns {
   from {
     transform: scale(1);
   }
   to {
-    transform: scale(1.06);
+    transform: scale(1.05);
   }
 }
 
 .hero-ken-burns {
-  animation: hero-ken-burns 12s linear forwards;
+  animation: hero-ken-burns 18s linear forwards;
 }
 
 .hero-crossfade-in.hero-ken-burns {
   animation:
-    hero-crossfade-in 0.4s var(--ease-out) forwards,
-    hero-ken-burns 12s linear forwards;
+    hero-crossfade-in var(--motion-dissolve) var(--ease-out) forwards,
+    hero-ken-burns 18s linear forwards;
+}
+
+/* Project / cover media — gated hover zoom (occasional browse) */
+.media-zoom {
+  transition: transform var(--motion-media-duration) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .media-zoom {
+    transform: scale(1.04);
+  }
+}
+
+/* Mobile nav panel — occasional open */
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.menu-enter {
+  animation: menu-enter 220ms var(--ease-out) both;
+}
+
+@keyframes menu-backdrop-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-backdrop-enter {
+  animation: menu-backdrop-enter 200ms var(--ease-out) both;
 }
 
 @keyframes fade-opacity {
@@ -191,6 +239,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .fade-up,
+  .fade-up-hero,
   .reveal.is-visible {
     animation: fade-opacity 0.35s var(--ease-out) both;
     transform: none;
@@ -215,6 +264,19 @@ body {
   .hero-crossfade-in.hero-ken-burns {
     animation: none;
     transform: none;
+  }
+
+  .media-zoom {
+    transition: none;
+  }
+
+  .group:hover .media-zoom {
+    transform: none;
+  }
+
+  .menu-enter,
+  .menu-backdrop-enter {
+    animation: none;
   }
 
   .pressable:active {

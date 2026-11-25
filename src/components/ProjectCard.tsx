@@ -83,7 +83,7 @@ export function ProjectCard({
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority={priority}
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              className="media-zoom object-cover"
             />
             {number ? (
               <span className="absolute top-4 left-4 font-mono text-[11px] tracking-wide text-foreground">
@@ -141,7 +141,7 @@ export function ProjectCard({
             sizes="(max-width: 768px) 100vw, 50vw"
             // ponytail: priority alone sets eager/high; duplicating loading/fetchPriority mismatches SSR vs client.
             priority={priority}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            className="media-zoom object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
 
@@ -186,7 +186,7 @@ export function ProjectCard({
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             priority={priority}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className="media-zoom object-cover"
           />
           {number ? (
             <span className="absolute top-4 left-4 rounded-lg bg-background/80 px-2.5 py-1 font-mono text-[11px] tracking-wide text-accent ring-1 ring-border backdrop-blur-sm">

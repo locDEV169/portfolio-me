@@ -63,15 +63,15 @@ export function HomeHero() {
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-10 pt-28 sm:px-8 sm:pb-14">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-12">
           <div className="max-w-2xl">
-            <p className="fade-up font-mono text-[11px] tracking-[0.18em] text-foreground/80 uppercase">
+            <p className="fade-up-hero font-mono text-[11px] tracking-[0.18em] text-foreground/80 uppercase">
               ({site.tagline}, {site.location})
             </p>
 
-            <p className="fade-up fade-up-delay-1 mt-5 font-display text-4xl leading-[0.9] font-bold tracking-tight uppercase sm:text-6xl md:text-7xl">
+            <p className="fade-up-hero fade-up-delay-1 mt-5 font-display text-4xl leading-[0.9] font-bold tracking-tight uppercase sm:text-6xl md:text-7xl">
               {site.name}
             </p>
 
-            <h1 className="fade-up fade-up-delay-2 mt-4 font-display text-3xl leading-[0.95] font-bold tracking-tight uppercase sm:text-5xl md:text-6xl">
+            <h1 className="fade-up-hero fade-up-delay-2 mt-4 font-display text-3xl leading-[0.95] font-bold tracking-tight uppercase sm:text-5xl md:text-6xl">
               {site.heroTitle.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -80,11 +80,11 @@ export function HomeHero() {
               <span className="mt-1 block text-accent">{site.heroAccent}</span>
             </h1>
 
-            <p className="fade-up fade-up-delay-3 mt-5 max-w-md text-sm text-foreground/85 sm:text-base">
+            <p className="fade-up-hero fade-up-delay-3 mt-5 max-w-md text-sm text-foreground/85 sm:text-base">
               {site.bioShort}
             </p>
 
-            <div className="fade-up fade-up-delay-3 mt-7 flex flex-wrap gap-3">
+            <div className="fade-up-hero fade-up-delay-3 mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="pressable rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
@@ -103,7 +103,7 @@ export function HomeHero() {
           {featuredPhotos.length > 0 ? (
             // ponytail: justify-end on overflow flex clips the start (01–02). Align with inner ml-auto instead.
             <div
-              className="fade-up fade-up-delay-3 overflow-x-auto pb-1 scrollbar-none overflow-auto"
+              className="fade-up-hero fade-up-delay-3 overflow-x-auto pb-1 scrollbar-none overflow-auto"
               role="list"
               aria-label="Featured photo projects"
             >
