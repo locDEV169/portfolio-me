@@ -11,32 +11,29 @@ export function SelectedWorksSection() {
   return (
     <section
       id="portfolio"
-      className="border-t border-border bg-background px-5 py-16 sm:px-8 sm:py-24"
+      className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-              Photography
+              Selected works
             </p>
             <h2 className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-5xl">
-              Photography Works
+              Photography
             </h2>
-            <p className="mt-3 text-sm text-muted sm:text-base">
-              Selected still sets from recent shoots.
-            </p>
           </div>
           <Link
             href="/work"
             className="inline-flex shrink-0 items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-foreground uppercase transition-colors hover:text-accent"
           >
-            View all works
+            View all
             <span aria-hidden>→</span>
           </Link>
         </Reveal>
 
         {photos.length > 0 ? (
-          <div className="mt-14 flex flex-col gap-16 sm:gap-24">
+          <div className="mt-16 flex flex-col gap-24 sm:mt-20 sm:gap-32">
             {photos.map((project, index) => (
               <Reveal
                 key={project.slug}
@@ -56,24 +53,21 @@ export function SelectedWorksSection() {
           <p className="mt-10 text-muted">No photography projects yet.</p>
         )}
 
-        <div className="mt-20 border-t border-border pt-16 sm:mt-28 sm:pt-20">
+        <div className="mt-28 border-t border-border pt-20 sm:mt-36 sm:pt-24">
           <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-xl">
               <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-                Videography
+                Motion
               </p>
               <h2 className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-5xl">
-                Videography Works
+                Videography
               </h2>
-              <p className="mt-3 text-sm text-muted sm:text-base">
-                Short intros and motion cuts.
-              </p>
             </div>
             <Link
               href="/work"
               className="inline-flex shrink-0 items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-foreground uppercase transition-colors hover:text-accent"
             >
-              View all works
+              View all
               <span aria-hidden>→</span>
             </Link>
           </Reveal>

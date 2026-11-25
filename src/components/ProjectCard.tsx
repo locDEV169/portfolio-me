@@ -69,7 +69,7 @@ export function ProjectCard({
     return (
       <article className={className}>
         <div
-          className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-12 ${
+          className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
             reverse ? "lg:[&>*:first-child]:order-2" : ""
           }`}
         >
@@ -103,7 +103,7 @@ export function ProjectCard({
               {project.category}
               <span className="text-muted"> · {project.year}</span>
             </p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight uppercase sm:text-4xl">
+            <h2 className="mt-4 font-display text-4xl tracking-tight uppercase sm:text-5xl">
               <Link
                 href={`/work/${project.slug}`}
                 className="transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
@@ -111,12 +111,12 @@ export function ProjectCard({
                 {project.title}
               </Link>
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-5 text-sm leading-relaxed text-muted sm:text-base">
               {project.summary}
             </p>
             <Link
               href={`/work/${project.slug}`}
-              className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-foreground uppercase transition-colors hover:text-accent"
+              className="mt-8 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-foreground uppercase transition-colors hover:text-accent"
             >
               View project
               <span aria-hidden>→</span>

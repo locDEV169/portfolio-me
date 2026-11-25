@@ -1,81 +1,82 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { ManifestoReveal } from "@/components/ManifestoReveal";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 
+/** Belinda-lite: manifesto + stats right under hero. */
 export function IntroSection() {
   return (
     <section
       id="intro"
-      className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28"
+      className="border-t border-border bg-background px-5 py-24 sm:px-8 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-            {site.name} · Manifesto
-          </p>
-          <h2 className="mt-6 max-w-4xl font-display text-4xl leading-[0.95] tracking-tight uppercase sm:text-6xl md:text-7xl">
-            {site.manifesto.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            {site.manifestoBody}
-          </p>
-        </Reveal>
-
-        <Reveal
-          delay={1}
-          className="mt-14 grid gap-8 border-y border-border py-10 sm:grid-cols-3 sm:gap-6"
-        >
-          {site.stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="font-display text-4xl tracking-tight sm:text-5xl">
+        <ManifestoReveal
+          lines={site.manifesto}
+          body={site.manifestoBody}
+          stats={site.stats.map((stat) => (
+            <div key={stat.label} className="manifesto-stat">
+              <p className="font-display text-5xl tracking-tight sm:text-6xl">
                 {stat.value}
                 <span className="text-accent">{stat.suffix}</span>
               </p>
-              <p className="mt-2 font-mono text-[11px] tracking-wide text-muted uppercase">
+              <p className="mt-3 font-mono text-[11px] tracking-wide text-muted uppercase">
                 {stat.label}
               </p>
             </div>
           ))}
+        />
+      </div>
+    </section>
+  );
+}
+
+type AboutBandProps = {
+  /** Use h1 on the dedicated /about page. */
+  headingAs?: "h1" | "h2";
+};
+
+/** Portrait + about copy — home band and /about page. */
+export function AboutBand({ headingAs: Heading = "h2" }: AboutBandProps) {
+  return (
+    <section
+      id="about"
+      className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28"
+    >
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal className="about-intro-hero relative mx-auto aspect-3/4 w-full max-w-md overflow-hidden rounded-2xl bg-surface ring-1 ring-border lg:mx-0 lg:max-w-none">
+          <Image
+            src={site.introImage.src}
+            alt={site.introImage.alt}
+            fill
+            sizes="(max-width: 1024px) 448px, 560px"
+            className="about-intro-media media-zoom object-cover"
+            priority={Heading === "h1"}
+          />
         </Reveal>
 
-        <div className="mt-14 grid items-end gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <Reveal delay={1} className="relative mx-auto aspect-3/4 w-full max-w-xs overflow-hidden rounded-2xl bg-surface ring-1 ring-border lg:mx-0">
-            <Image
-              src={site.introImage.src}
-              alt={site.introImage.alt}
-              fill
-              sizes="(max-width: 1024px) 320px, 360px"
-              className="object-cover"
-            />
-          </Reveal>
-
-          <Reveal delay={2}>
-            <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-              About
-            </p>
-            <h3 className="mt-3 max-w-lg font-display text-3xl tracking-tight uppercase sm:text-4xl">
-              {site.headline}
-            </h3>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted">
-              {site.bio}
-            </p>
-            <p className="mt-4 font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
-              {site.tagline} · {site.location}
-            </p>
-            <Link
-              href="/contact"
-              className="pressable mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
-            >
-              Get in touch
-              <span aria-hidden>→</span>
-            </Link>
-          </Reveal>
-        </div>
+        <Reveal delay={1}>
+          <p className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+            About
+          </p>
+          <Heading className="mt-4 max-w-xl font-display text-3xl leading-snug tracking-tight uppercase sm:text-4xl md:text-5xl">
+            {site.headline}
+          </Heading>
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+            {site.bio}
+          </p>
+          <p className="mt-6 max-w-lg font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+            {site.tagline} — {site.location}
+          </p>
+          <Link
+            href="/contact"
+            className="pressable mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-xs font-bold tracking-[0.14em] text-inverse-fg uppercase hover:opacity-90"
+          >
+            Get in touch
+            <span aria-hidden>→</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

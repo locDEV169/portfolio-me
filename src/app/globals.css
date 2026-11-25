@@ -96,6 +96,63 @@ body {
   animation-delay: 0.34s;
 }
 
+/* Belinda-like manifesto — per-line rise (IntroSection) */
+@keyframes manifesto-rise {
+  from {
+    opacity: 0;
+    transform: translateY(56px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.manifesto-stage .manifesto-line,
+.manifesto-stage .manifesto-body,
+.manifesto-stage .manifesto-stat {
+  opacity: 0;
+  transform: translateY(56px);
+}
+
+.manifesto-stage.is-visible .manifesto-line,
+.manifesto-stage.is-visible .manifesto-body,
+.manifesto-stage.is-visible .manifesto-stat {
+  animation: manifesto-rise 0.95s var(--ease-out) both;
+}
+
+.manifesto-stage.is-visible .manifesto-line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.manifesto-stage.is-visible .manifesto-line:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.manifesto-stage.is-visible .manifesto-line:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.manifesto-stage.is-visible .manifesto-line:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.manifesto-stage.is-visible .manifesto-body {
+  animation-delay: 0.42s;
+}
+
+.manifesto-stage.is-visible .manifesto-stat:nth-child(1) {
+  animation-delay: 0.52s;
+}
+
+.manifesto-stage.is-visible .manifesto-stat:nth-child(2) {
+  animation-delay: 0.62s;
+}
+
+.manifesto-stage.is-visible .manifesto-stat:nth-child(3) {
+  animation-delay: 0.72s;
+}
+
 /* Belinda-lite vertical image tickers (CaptureMomentsSection) */
 @keyframes ticker-up {
   from {
@@ -145,38 +202,146 @@ body {
   transform: scale(0.97);
 }
 
-/* Film dissolve — opacity only so Ken Burns owns transform */
-@keyframes hero-crossfade-in {
+/* Project switch — flip + zoom-in (parent); slow Ken Burns on img after */
+.hero-stage {
+  perspective: 1600px;
+}
+
+@keyframes hero-flip-in-next {
   from {
     opacity: 0;
+    transform: rotateY(38deg);
   }
   to {
     opacity: 1;
+    transform: rotateY(0deg);
   }
 }
 
-.hero-crossfade-in {
-  animation: hero-crossfade-in var(--motion-dissolve) var(--ease-out) forwards;
+@keyframes hero-flip-in-prev {
+  from {
+    opacity: 0;
+    transform: rotateY(-38deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
-/* Ken Burns — slow push-in, videography ambient */
-@keyframes hero-ken-burns {
+@keyframes hero-flip-out-next {
+  from {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotateY(-32deg);
+  }
+}
+
+@keyframes hero-flip-out-prev {
+  from {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotateY(32deg);
+  }
+}
+
+.hero-flip-in-next {
+  animation: hero-flip-in-next 0.65s var(--ease-out) both;
+  transform-origin: 50% 50%;
+}
+
+.hero-flip-in-prev {
+  animation: hero-flip-in-prev 0.65s var(--ease-out) both;
+  transform-origin: 50% 50%;
+}
+
+/* First paint — intro hero flip (same language as project switch) */
+@keyframes hero-intro-enter {
+  from {
+    opacity: 0;
+    transform: rotateY(28deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+.hero-intro-enter {
+  animation: hero-intro-enter 0.8s var(--ease-out) both;
+  transform-origin: 50% 50%;
+}
+
+/* About band portrait — flip + zoom on scroll reveal */
+.about-intro-hero.reveal {
+  opacity: 1;
+  transform: none;
+  perspective: 1400px;
+}
+
+.about-intro-hero.reveal .about-intro-media {
+  opacity: 0;
+  transform: rotateY(32deg) scale(1);
+}
+
+.about-intro-hero.reveal.is-visible .about-intro-media {
+  animation: about-intro-enter 0.8s var(--ease-out) both;
+}
+
+@keyframes about-intro-enter {
+  0% {
+    opacity: 0;
+    transform: rotateY(32deg) scale(1);
+  }
+  45% {
+    opacity: 1;
+    transform: rotateY(10deg) scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+.hero-flip-out-next {
+  animation: hero-flip-out-next 0.5s var(--ease-out) both;
+  transform-origin: 50% 50%;
+}
+
+.hero-flip-out-prev {
+  animation: hero-flip-out-prev 0.5s var(--ease-out) both;
+  transform-origin: 50% 50%;
+}
+
+/* Zoom-in on switch/load, then slow ambient push */
+@keyframes hero-zoom-in {
   from {
     transform: scale(1);
   }
   to {
-    transform: scale(1.05);
+    transform: scale(1.08);
+  }
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.12);
   }
 }
 
 .hero-ken-burns {
-  animation: hero-ken-burns 18s linear forwards;
-}
-
-.hero-crossfade-in.hero-ken-burns {
   animation:
-    hero-crossfade-in var(--motion-dissolve) var(--ease-out) forwards,
-    hero-ken-burns 18s linear forwards;
+    hero-zoom-in 0.7s var(--ease-out) both,
+    hero-ken-burns 16s linear 0.7s forwards;
 }
 
 /* Project / cover media — gated hover zoom (occasional browse) */
@@ -245,6 +410,19 @@ body {
     transform: none;
   }
 
+  .manifesto-stage .manifesto-line,
+  .manifesto-stage .manifesto-body,
+  .manifesto-stage .manifesto-stat {
+    opacity: 1;
+    transform: none;
+  }
+
+  .manifesto-stage.is-visible .manifesto-line,
+  .manifesto-stage.is-visible .manifesto-body,
+  .manifesto-stage.is-visible .manifesto-stat {
+    animation: fade-opacity 0.35s var(--ease-out) both;
+  }
+
   .reveal {
     opacity: 0;
     transform: none;
@@ -255,15 +433,27 @@ body {
     animation: none;
   }
 
-  .hero-crossfade-in {
-    animation: none;
-    opacity: 1;
+  .hero-flip-in-next,
+  .hero-flip-in-prev,
+  .hero-flip-out-next,
+  .hero-flip-out-prev,
+  .hero-intro-enter {
+    animation: fade-opacity 0.35s var(--ease-out) both;
+    transform: none;
   }
 
-  .hero-ken-burns,
-  .hero-crossfade-in.hero-ken-burns {
+  .hero-ken-burns {
     animation: none;
     transform: none;
+  }
+
+  .about-intro-hero.reveal .about-intro-media {
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-intro-hero.reveal.is-visible .about-intro-media {
+    animation: fade-opacity 0.35s var(--ease-out) both;
   }
 
   .media-zoom {
